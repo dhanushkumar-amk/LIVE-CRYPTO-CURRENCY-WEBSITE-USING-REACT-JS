@@ -1,4 +1,5 @@
-.home {  padding: 0px 10px;
+.home {
+  padding: 0px 10px;
   padding-bottom: 100px;
 }
 .hero {
@@ -13,6 +14,7 @@
 
 .hero h1 {
   font-size: max(4vw, 36px);
+  font-weight: 500;
 }
 .hero p {
   width: 75%;
@@ -85,4 +87,25 @@
 .table-layout .red {
   color: #ff4646;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .table-layout {
+    grid-template-columns: 0.5fr 3fr 1fr 1fr;
+  }
+  .market-cap {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-layout div img {
+    width: 25px;
+  }
+  .table-layout {
+    font-size: 13px;
+  }
+  .hero form input {
+    width: 100px;
+  }
 }
