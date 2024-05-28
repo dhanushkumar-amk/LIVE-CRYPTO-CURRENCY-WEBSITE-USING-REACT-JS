@@ -14,5 +14,6 @@ a {
 .app {
   color: white;
   min-height: 100vh;
-  background: linear-gradient(#0b004e, #1d152f, #002834);
+  /* background: linear-gradient(#0b004e, #1d152f, #002834); */
+  background: red;
 }
