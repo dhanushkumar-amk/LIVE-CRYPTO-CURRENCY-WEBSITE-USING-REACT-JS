@@ -1,5 +1,4 @@
-import './Navbar.css';
-import logo from '../../assets/logo.png';
+import './Navbar.css';import logo from '../../assets/logo.png';
 import ArrowIcon from '../../assets/arrow_icon.png';
 import {useContext} from 'react';
 import {CoinContext} from '../../context/coinContext';
@@ -46,9 +45,9 @@ const Navbar = () => {
 
       <div className='nav-right'>
         <select onChange={currencyHandler}>
-          <option value='inr'>INR</option>
           <option value='usd'>USD</option>
           <option value='eur'>EUR</option>
+          <option value='inr'>INR</option>
         </select>
         <button>
           Sign Up{' '}
