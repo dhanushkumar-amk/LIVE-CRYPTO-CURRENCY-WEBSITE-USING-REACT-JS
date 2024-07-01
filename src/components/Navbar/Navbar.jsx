@@ -18,7 +18,7 @@ const Navbar = () => {
         setCurrency({name: 'inr', symbol: '₹'});
         break;
       case 'yuan'
-        setCurrency({name: '', symbol: '¥'});
+        setCurrency({name: 'yen', symbol: '¥'});
         break;
 
       default:
