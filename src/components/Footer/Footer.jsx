@@ -4,7 +4,7 @@ import './Footer.css';const Footer = () => {
   return (
     <div className='footer'>
       <p>
-        Copyright © {year.getFullYear()} , Dhanushkumar - All Rights Reserved
+        Copyright © {year.getFullYear()} , Sanjay Kumar - All Rights Reserved
       </p>
     </div>
   );
