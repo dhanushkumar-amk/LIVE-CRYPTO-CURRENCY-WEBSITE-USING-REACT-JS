@@ -51,7 +51,7 @@ const Navbar = () => {
           <option value='usd'>USD</option>
           <option value='eur'>EUR</option>
           <option value='inr'>INR</option>
-           <option value='inr'>Yuan</option>
+           <option value='yuan'>Yuan</option>
         </select>
         <button>
           Sign Up{' '}
