@@ -17,6 +17,9 @@ const Navbar = () => {
       case 'inr':
         setCurrency({name: 'inr', symbol: '₹'});
         break;
+      case 'yuan'
+        setCurrency({name: '', symbol: '¥'});
+        break;
 
       default:
         setCurrency({name: 'usd', symbol: '$'});
@@ -48,6 +51,7 @@ const Navbar = () => {
           <option value='usd'>USD</option>
           <option value='eur'>EUR</option>
           <option value='inr'>INR</option>
+           <option value='inr'>Yuan</option>
         </select>
         <button>
           Sign Up{' '}
