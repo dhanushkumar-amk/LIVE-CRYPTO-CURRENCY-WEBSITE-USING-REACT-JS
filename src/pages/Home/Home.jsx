@@ -69,7 +69,7 @@ const Home = () => {
           <p style={{textAlign: 'center'}}>24h Change</p>
           <p className='market-cap'>Market Cap</p>
         </div>
-        {displayCoin.slice(0, 22).map((item, index) => (
+        {displayCoin.slice(0, 15).map((item, index) => (
           <Link
             to={`/coin/${item.id}`}
             className='table-layout'
