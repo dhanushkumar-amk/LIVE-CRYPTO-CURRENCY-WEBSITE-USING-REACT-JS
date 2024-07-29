@@ -27,7 +27,7 @@ const Navbar = () => {
     <div className='navbar'>
       <Link to={'/'}>
         <img
-          src={logo}
+          src="https://www.canva.com/design/DAGMTiGOYCE/UphK4I-mvmTm12eOGGS5eQ/edit?utm_content=DAGMTiGOYCE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
           alt='Logo pic'
           className='logo'
         />
