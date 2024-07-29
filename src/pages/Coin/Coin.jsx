@@ -1,14 +1,15 @@
-import {useContext, useEffect, useState} from 'react';import './Coin.css';
-import {useParams} from 'react-router-dom';
-import {CoinContext} from '../../context/coinContext';
+import { useContext, useEffect, useState } from 'react';
+import './Coin.css';
+import { useParams } from 'react-router-dom';
+import { CoinContext } from '../../context/coinContext';
 import LineChart from '../../components/LineChart/LineChart';
 
 const Coin = () => {
-  const {coinId} = useParams();
+  const { coinId } = useParams();
+  const { currency } = useContext(CoinContext);
 
-  const [HistoricalData, setHistoricalData] = useState();
+  const [historicalData, setHistoricalData] = useState();
   const [coinData, setCoinData] = useState();
-  const {currency} = useContext(CoinContext);
 
   const fetchCoinData = async () => {
     const options = {
@@ -46,24 +47,38 @@ const Coin = () => {
   useEffect(() => {
     fetchCoinData();
     fetchHistoricalData();
-  }, [currency]);
+  }, [coinId, currency]);
 
-  if (coinData && HistoricalData) {
+  const renderDescription = () => {
+    if (coinData && coinData.description && coinData.description.en) {
+      // Split description into lines
+      const descriptionLines = coinData.description.en.split('\n').slice(0, 5); // Limit to 5 lines
+
+      return (
+        <>
+          {descriptionLines.map((line, index) => (
+            <p key={index}>{line}</p>
+          ))}
+          {descriptionLines.length < 5 && <p>...</p>}
+        </>
+      );
+    }
+    return null;
+  };
+
+  if (coinData && historicalData) {
     return (
       <div className='coin'>
         <div className='coin-name'>
-          <img
-            src={coinData.image.large}
-            alt=''
-          />
+          <img src={coinData.image?.large} alt='' />
           <p>
             <b>
-              {coinData.name} ({coinData.symbol.toUpperCase()}){' '}
+              {coinData.name} ({coinData.symbol?.toUpperCase()})
             </b>
           </p>
         </div>
         <div className='coin-chart'>
-          <LineChart HistoricalData={HistoricalData} />
+          <LineChart HistoricalData={historicalData} />
         </div>
 
         <div className='coin-info'>
@@ -71,14 +86,12 @@ const Coin = () => {
             <li>Crypto Market Rank </li>
             <li>{coinData.market_cap_rank}</li>
           </ul>
-          {/*  */}
+
           <ul>
             <li>Current Price </li>
             <li>
               {currency.symbol}{' '}
-              {coinData.market_data.current_price[
-                currency.name
-              ].toLocaleString()}
+              {coinData.market_data.current_price[currency.name]?.toLocaleString()}
             </li>
           </ul>
 
@@ -89,6 +102,7 @@ const Coin = () => {
               {coinData.market_data.market_cap[currency.link]?.toLocaleString()}
             </li>
           </ul>
+
           <ul>
             <li>24 Hour High </li>
             <li>
@@ -96,20 +110,20 @@ const Coin = () => {
               {coinData.market_data.high_24h[currency.name]?.toLocaleString()}
             </li>
           </ul>
+
           <ul>
             <li>24 Hour Low </li>
             <li>
               {currency.symbol}{' '}
               {coinData.market_data.low_24h[currency.name]?.toLocaleString()}
             </li>
-{/*             <li>
-      {coinData.description[currency.name]?.toLocaleString()}
-            </li> */}
           </ul>
 
-          <p>
-            {coinData.description.en}
-          </p>
+          {/* Render description */}
+          <div className='coin-description'>
+            <h3>Description</h3>
+            {renderDescription()}
+          </div>
         </div>
       </div>
     );
