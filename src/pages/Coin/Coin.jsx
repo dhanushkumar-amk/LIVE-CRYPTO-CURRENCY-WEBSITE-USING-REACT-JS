@@ -52,7 +52,7 @@ const Coin = () => {
   const renderDescription = () => {
     if (coinData && coinData.description && coinData.description.en) {
       // Split description into lines
-      const descriptionLines = coinData.description.en.split('\n').slice(0, 5); // Limit to 5 lines
+      const descriptionLines = coinData.description.en.split('\n').slice(0, 3); // Limit to 5 lines
 
       return (
         <>
