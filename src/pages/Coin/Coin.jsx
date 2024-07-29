@@ -102,10 +102,14 @@ const Coin = () => {
               {currency.symbol}{' '}
               {coinData.market_data.low_24h[currency.name]?.toLocaleString()}
             </li>
-            <li>
+{/*             <li>
       {coinData.description[currency.name]?.toLocaleString()}
-            </li>
+            </li> */}
           </ul>
+
+          <p>
+            {coinData.description.en}
+          </p>
         </div>
       </div>
     );
