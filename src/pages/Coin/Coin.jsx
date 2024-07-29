@@ -121,7 +121,7 @@ const Coin = () => {
 
           {/* Render description */}
           <div className='coin-description'>
-            <p>Description</h3>
+            <p>Description</p>
             {renderDescription()}
           </div>
         </div>
